@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Account Settings</title>
+  </head>
+  <body>
+    <h1>Account Settings</h1>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone"><br><br>
+      <button type="button" onclick="saveDetails()">Save</button>
+    </form>
+
+    <script>
+      function saveDetails() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        document.cookie = "name=" + name;
+        document.cookie = "email=" + email;
+        document.cookie = "phone=" + phone;
+        alert("Details saved!");
+      }
+    </script>
+  </body>
+</html>

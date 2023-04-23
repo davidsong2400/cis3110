@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Details Display</title>
+</head>
+<body>
+  <h1>User Details Display</h1>
+
+  <script>
+    function getCookie(name) {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(name + "=") == 0) {
+          return cookie.substring((name + "=").length, cookie.length);
+        }
+      }
+      return null;
+    }
+
+    function displayDetails() {
+      var userDetailsString = getCookie("userDetails");
+      if (userDetailsString) {
+        var userDetails = JSON.parse(userDetailsString);
+        var displayString = "Name: " + userDetails.name + "\n" +
+                            "Age: " + userDetails.age + "\n" +
+                            "Address: " + userDetails.address + "\n" +
+                            "Email: " + userDetails.email + "\n" +
+                            "Phone: " + userDetails.phone;
+        alert(displayString);
+      } else {
+        alert("No user details found.");
+      }
+    }
+
+    displayDetails();
+  </script>
+</body>
+</html>
+
+
